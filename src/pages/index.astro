@@ -1,0 +1,324 @@
+---
+import Header from "../components/Header.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import IndexProfile from "../assets/index/profile.webp";
+---
+
+<MainLayout  type ="1">
+    <Header slot="header" active=`about`/>
+     <main class="main-container" role="main">
+            <div class="section-container">
+                <header class="section-header">
+                    <h1 class="section-title">
+                        <span style="font-weight:900;">Philip</span>
+                        L. Soriano
+                    </h1>
+                    <div class="section-subber-title">
+                        Software Developer / Research Assistant  
+                    </div>
+                </header>
+                <article class="section-main about-main">
+                    <div class ="section-image about-image">
+                        <img  src={IndexProfile.src} class="profile-image">
+                        <!-- alt="Philip Soriano profile picture"  -->
+                    </div>
+                    <div class ="section-text about-text" style="display: flex; flex-direction: column; justify-content: space-evenly;">
+                        <p>I am a software developer who enjoys building cool software, learning new tech and solving problems.</p> 
+                        <p>When I’m not coding, you’ll find me looking at bugs*, tending to my shrimp tank, or doomscrolling through Reddit. </p>
+                        <p style="font-size: 1.25rem;">*actual bugs, not the other kind <span class="emoji">🐛🐞🪲🐜</span></p>
+                       
+                        <br><p style="display: flex; justify-content: space-evenly;">
+                            <a class="btn-large-link" href="mailto:psoriano00@outlook.com">Email</a> 
+                            <a class="btn-large-link" href="https://github.com/sorphil">Github</a></p>
+                    </div>
+                   
+                </article>
+            </div>
+            <div class="section-container" >
+                <header class="section-header">
+                    <h2 class="section-sub-title">
+                       Skills Summary
+                    </h2>
+                </header>
+                <article class="section-main about-skills">
+                    <div class="about-skills-section">
+                        <h3 class="about-skills-title">
+                            Languages
+                        </h3>
+                        <div class="about-skills-icons">
+                            <i class="devicon-csharp-plain-wordmark software-icon"></i>
+                            <i class="devicon-java-plain-wordmark  software-icon"></i>
+                            <i class="devicon-python-plain-wordmark software-icon"></i>
+                            <i class="devicon-javascript-plain  software-icon"></i>
+                       
+                            <i class="devicon-bash-plain software-icon"></i>
+                          
+        
+          
+                        </div>
+                    </div>
+                    <div class="about-skills-section">
+                        <h3 class="about-skills-title">
+                            Frameworks
+                        </h3>
+                        <div class="about-skills-icons">
+                            <i class="devicon-django-plain-wordmark software-icon"></i>
+                            <i class="devicon-djangorest-plain-wordmark software-icon"></i>
+                            <i class="devicon-flask-original-wordmark software-icon"></i>
+                            <i class="devicon-dot-net-plain-wordmark software-icon"></i>
+                            <i class="devicon-react-original-wordmark  software-icon"></i>
+                            <i class="devicon-android-plain software-icon"></i>
+                        </div>
+                    </div>
+                    <div class="about-skills-section">
+                        <h3 class="about-skills-title">
+                             Tools & Databases
+                        </h3>
+                        <div class="about-skills-icons">
+                            <i class="devicon-docker-plain-wordmark software-icon"></i>
+                            <i class="devicon-kubernetes-plain-wordmark software-icon"></i>
+                            <i class="devicon-git-plain-wordmark software-icon"></i>       
+                            <i class="devicon-azuresqldatabase-plain software-icon"></i>
+           
+                            <i class="devicon-microsoftsqlserver-plain-wordmark software-icon"></i>
+                            <i class="devicon-mongodb-plain-wordmark  software-icon"></i>
+
+                        </div>
+                    </div>    
+                
+                </article>
+            </div>
+    </main>
+</MainLayout>
+<style>
+    
+    .main-container
+    {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin:0 0 10rem 0
+    }
+    .section-container
+    {
+        margin: 2rem 0 2rem 0;
+        width:90rem;
+    }
+    .section-title
+    {
+        font-size: 3.75rem;
+        font-weight: 300;
+        padding:0;
+        margin:2rem 0 0rem 0;
+    }
+    .section-sub-title
+    {
+        font-size: 3rem;
+        font-weight: 500;
+        padding:0;
+        margin:2rem 0 0rem 0;
+    }
+    .section-subber-title
+    {
+        font-size: 2rem;
+        font-weight: 400;
+    }
+    .section-main
+    {
+        display: flex;
+        margin-top:1.5rem;
+    }
+    .btn-large-link
+    {
+        padding:1.5rem;
+        width:25%;
+        text-align: center;
+        border-radius: 1rem;
+        color:#1C1C1D;
+        background-color: #e3e3e2;
+        transition: all 300ms;
+
+        &:hover, &:focus
+        {
+            background-color:#414143;
+            color:#e3e3e2;
+        }
+    }
+
+
+  
+    .section-text
+    {
+        font-size: 1.7rem;
+        margin-right: 5rem;
+    }
+
+    .about-text
+    {
+        width:65%;
+        &>p{
+        margin:1rem 0 1rem 0;
+        }
+    }
+    .about-main
+    {
+        display: flex;
+        justify-content: space-between;
+    }
+    .profile-image
+    {
+        width:25rem;
+        filter: grayscale(0.25);
+        height: auto;
+        border-radius: 5%;
+        &.dark-mode-toggled
+        {
+             filter: invert(1);
+        }
+    }
+
+    .about-skills
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    .about-skills-section
+    {
+        width:100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin:0.5rem 0 2rem 0;
+    }
+    .about-skills-title
+    {
+        font-size: 1.9rem;
+        margin:0 0 0.25rem 0;
+        font-weight: 300;
+    }
+    .about-skills-icons
+    {
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        >i
+        {
+            padding:1rem 1.5rem 1rem 1.5rem;
+        }
+    }
+    .software-icon
+    {
+        font-size: 5rem;
+    }
+    .emoji {
+        &.dark-mode-toggled
+        {
+             filter: invert(1);
+        }
+    }
+    @media(max-width: 600px) 
+    {
+        html,body{font-size: 1px; max-width: 100vw; display: flex; flex-direction: column; justify-content: center; align-items: center;} 
+        .section-container
+        {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .about-main
+        {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .section-title
+        {
+            text-align: center;
+        }
+        .section-text
+        {
+            font-size: 1.7rem;
+        
+        }
+
+        .about-text
+        {
+            width:95%;
+        text-align: center;
+        margin: 0;
+
+        }
+        .profile-image
+        {
+    
+            filter: grayscale(0.25);
+            height: auto;
+            border-radius: 5%;
+        }
+
+        .about-skills
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .about-skills-section
+        {
+            width:100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin:0.5rem 0 2rem 0;
+        }
+        .about-skills-title
+        {
+            font-size: 1.9rem;
+            margin:0 0 0.25rem 0;
+            font-weight: 300;
+        }
+        .about-skills-icons
+        {
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            >i
+            {
+                padding:1rem 1.5rem 1rem 1.5rem;
+            }
+        }
+        .software-icon
+        {
+            font-size: 4.5rem;
+        }
+
+    
+    }
+
+    @media(max-width: 600px) 
+    {
+        html,body{font-size: 7px; max-width: 100vw; display: flex; flex-direction: column; justify-content: center; align-items: center;} 
+        .section-container{width:100%; display: flex; flex-direction: column; justify-content: center; align-items: center;}
+        
+    }
+    @media (min-width: 601px) and (max-width: 1080px) 
+    {
+        html,body{font-size: 9px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .main-container, .section-container{width:80rem;}
+        .about-main
+        {   
+            display: flex;
+            justify-content: space-between;
+        }
+        .about-text {font-size: 1.5rem; width: 50%;}
+    }
+
+</style>

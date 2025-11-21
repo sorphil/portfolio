@@ -1,0 +1,24 @@
+---
+import mainImage from "../../assets/projects/pi-taylorrenegade/pi-taylorrenegade.webp"
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+const images = await Astro.glob("../../assets/projects/pi-taylorrenegade/images/*").then(files => {
+  return files.map(file => file.default);
+});
+---
+
+<ProjectLayout
+projectTitle="Taylor Ross - Forensic Art Portfolio"
+projectSub="Portfolio Website using AstroJS"
+projectText=`I worked with Taylor Violet Ross to design and develop a modern, responsive portfolio website to showcase
+             her creative and academic work. The site was built using Astro.build, a fast static site framework that 
+             allowed me to create clean and lightweight pages with minimal load times. I handled the full 
+             front-end build; structuring the layout, organizing content sections, optimizing images, and 
+             ensuring consistent styling across all pages. The site was deployed on Azure Static Web Apps, 
+             which provided reliable hosting, and automatic builds for quick updates. 
+             My goal was to create a professional online presence that was visually appealing, easy to navigate, 
+             and able to highlight Taylor’s work effectively on both desktop and mobile.`
+projectText2=`A key part of the project involved enhancing the website’s SEO and performance to help Taylor increase visibility and reach a wider audience. I implemented SEO best practices, including optimized metadata, descriptive titles, structured headings, image alt-text, and clean URLs for better indexing. I also improved page performance by compressing assets, lazy-loading media, minimizing JavaScript, and leveraging Astro’s built-in optimization features. Additionally, I focused on accessibility by ensuring proper semantic HTML, readable contrast ratios, and keyboard-friendly navigation. These improvements created a fast, search-friendly website that ranks more effectively on Google and provides a smoother experience for visitors across devices.`
+projectMainImage={mainImage}
+projectImages={images}/
+projectLive="https://taylorrenegade.ca/">
+    

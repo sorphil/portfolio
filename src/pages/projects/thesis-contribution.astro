@@ -1,0 +1,28 @@
+---
+import mainImage from "../../assets/projects/pi-thesis/pi-thesis-tile.webp"
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+const images = await Astro.glob("../../assets/projects/pi-thesis/images/*").then(files => {
+  return files.map(file => file.default);
+});
+---
+
+<ProjectLayout
+projectTitle="Master's Dissertation Contribution"
+projectSub="Facial Recognition APIs and Data Aggregation and Visualization with Python"
+projectText=`As part of supporting Taylor Violet Ross’s thesis, I assisted with the technical analysis by 
+            aggregating and processing data using Python. After generating similarity scores through AWS Rekognition and 
+            CompreFace, I helped consolidate the outputs into structured datasets, cleaning and organizing 
+            the results to ensure consistency. I used Python libraries such as Pandas, NumPy, and Matplotlib to 
+            visualize these similarity scores, creating charts that highlighted patterns and discrepancies between 
+            the different craniofacial approximation outputs. These visualizations helped Taylor clearly illustrate 
+            how different reconstruction approaches affected facial similarity, giving her a more data-driven 
+            foundation for her conclusions.`
+projectText2=`I also supported Taylor by reviewing and editing sections of her written thesis, ensuring that the technical
+             findings were presented clearly and accurately. This included refining explanations of the analysis process,
+              strengthening descriptions of the visualized results, and improving the overall clarity and flow of the 
+              research narrative. By helping integrate the visual data, similarity metrics, and methodological 
+              discussion, I contributed to making her final submission more coherent, accessible, and academically
+               polished.`
+projectMainImage={mainImage}
+projectImages={images}/>
+    

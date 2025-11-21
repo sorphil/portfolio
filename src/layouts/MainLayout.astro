@@ -1,0 +1,65 @@
+---
+import Footer from '../components/Footer.astro';
+const {type} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Philip Soriano, Canadian-based developer specializing in Python, Javascript and C#. Explore my projects in research and web development."/>
+		<meta name="generator" content={Astro.generator} />
+		<title>Philip Soriano | Developer</title>
+
+		<link rel="stylesheet" href="../styles/global.css"/>
+        
+        {type == "1" ? <script src="../scripts/scripts.js"></script> :<script src="../scripts/resume.js"></script>}
+		<!-- <link rel="sitemap" href="/sitemap-index.xml" /> -->
+		<meta property="og:title" content="Philip Soriano | Developer" />
+		<meta property="og:description" content="Philip Soriano, Canadian-based developer specializing in Python, Javascript and C#. Explore my projects in research and web development." />
+		 <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" /> 
+        <!-- <meta property="og:image" content={logoSiteAlt.src} /> -->
+	</head>	
+	<body>
+		<slot name="header"/>
+		<slot />
+	</body>
+	<Footer/>
+
+</html>
+<style>
+    html, body 
+{
+    font-size: 62.5%;
+    min-height: 100vh;
+    min-width: 100vw;
+    margin:0;
+    padding: 0;
+    background-color: #1C1C1D;
+    color:#C0C0C0;
+    font-family: 'Roboto', sans-serif;
+    transition: filter 500ms;
+
+}
+a
+{
+    color:#C0C0C0;
+    text-decoration: none;
+    &:hover
+    {
+        cursor: pointer;
+        color:#2591b282
+    }
+    &.active
+    {
+        font-weight: 500;
+        color:#2591B2;
+        text-decoration: underline;
+    }
+}
+
+.invert{ filter: invert(1);}
+.dark-mode-toggled{filter: invert(1);} 
+
+</style>

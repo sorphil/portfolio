@@ -1,0 +1,16 @@
+---
+import mainImage from "../../assets/projects/pi-sanic/pi-sanic.png"
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+const images = await Astro.glob("../../assets/projects/pi-sanic/images/*").then(files => {
+  return files.map(file => file.default);
+});
+---
+
+<ProjectLayout
+projectTitle="Sonic Parody Game"
+projectSub="C#/UWP Snake Clone Game"
+projectText=`I developed a Sonic-themed parody game using C# within the Universal Windows Platform (UWP) framework, focusing on replicating the gameplay mechanics of Snake but instead of growing in length for every item picked up, Sonic (Sanic in this case) grows in speed. The project involved designing responsive controls compatible with both gamepads and keyboards, implementing smooth game loops, and creating interactive user interfaces to engage players across different devices. Through this project, I strengthened my understanding of event handling, real-time input processing, and game state management in a Windows environment.`
+projectText2=`In addition to gameplay mechanics, I focused on crafting an enjoyable and accessible user experience by fine-tuning the game's responsiveness and visual feedback. I addressed technical challenges such as synchronizing animations, managing resource loading, and ensuring consistent performance across various hardware. This project allowed me to apply best practices in software development, debugging, and iterative design, resulting in a fun, stable game that demonstrates my ability to deliver polished interactive applications.`
+projectMainImage={mainImage}
+projectImages={images}/>
+    

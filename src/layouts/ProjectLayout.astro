@@ -1,0 +1,190 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+import Header from "../components/Header.astro";
+const {projectTitle, projectSub, projectText, projectText2, projectMainImage, projectImages, projectLive} = Astro.props;
+
+const images = await Astro.glob("../assets/projects/pi-taylorrenegade/images/*").then(files => {
+  return files.map(file => file.default);
+});
+---
+
+<MainLayout>
+      <Header slot="header" active=`projects`/>
+       <main class="main-container" role="main">
+            <div class="section-container">
+                <header class="section-header">
+                    <h1 class="section-title">
+                        <span style="font-weight:900;">{projectTitle}</span>
+                    </h1>
+                    <div class="section-subber-title" >
+                        {projectSub} {projectLive? <a href={projectLive} class="project-live">Live Demo</a> : ""}
+                    </div>
+                </header>
+                <article class="section-main">
+                    <div class ="section-text about-text" style="display: flex; flex-direction: column; justify-content: space-evenly;">
+                        <p>{projectText}</p> 
+                   <div class="section-gallery" style=`display:grid; grid-template-columns: repeat(3, 1fr);`>
+                    {
+                        projectImages?.map((image: any) => (
+                            <div class="section-sub-image-container">
+                                <label>
+                                    <input type="checkbox"/> 
+                                    <img
+                                                class="section-sub-image"
+                                                src={image.src}
+                                                alt=""
+                                                loading="lazy"
+                                            />
+                                </label>
+                            </div>
+                        ))
+                    }
+            </div>
+                        
+                        <p>{projectText2}</p>
+                        <div class ="section-main-image-container">
+                            <Image src={projectMainImage} alt="test" class="section-main-image"/>
+                        </div>
+                    </div>
+                </article>
+</MainLayout>
+<style>
+      .main-container
+    {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin:0 0 10rem 0;
+    }
+     .section-title
+    {
+        font-size: 3.75rem;
+        font-weight: 300;
+        padding:0;
+        margin:2rem 0 0rem 0;
+    }
+    .section-sub-title
+    {
+        font-size: 3rem;
+        font-weight: 500;
+        padding:0;
+        margin:2rem 0 0rem 0;
+    }
+    .section-subber-title
+    {
+        font-size: 2rem;
+        font-weight: 400;
+        padding-top:1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .section-main
+    {
+        display: flex;
+        margin-top:1.5rem;
+    }
+     .section-container
+    {
+        margin: 2rem 0 2rem 0;
+        width:90rem;
+        
+    }
+     .section-text
+    {
+        font-size: 1.7rem;
+        margin-right: 5rem;
+    }
+    .section-main-image-container
+    {
+        padding-top:5rem;
+        text-align: center;
+    }
+    .section-main-image
+    {
+        width:80%;
+        height:auto;
+                &.dark-mode-toggled
+        {
+            filter:invert(1)
+
+        }
+    }
+     .section-gallery
+    {
+        display:grid;
+        gap:0.5rem;
+        width:100%;
+        padding: 2rem 0 2rem 0;
+    }
+     .section-sub-image-container
+    {
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        & >label>input[type=checkbox]
+        {
+            display:none;
+            &:checked~img 
+            {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(1.8); 
+                cursor: zoom-out
+            }
+        }
+    }
+    .section-sub-image
+    {
+        width:22.5rem;
+        &.dark-mode-toggled
+        {
+            filter:invert(1)
+
+        }
+    }
+    .project-live
+    {
+        padding:1.5rem;
+        width:25%;
+        text-align: center;
+        border-radius: 1rem;
+        color:#1C1C1D;
+        background-color: #e3e3e2;
+        transition: all 300ms;
+
+        &:hover, &:focus
+        {
+            background-color:#414143;
+            color:#e3e3e2;
+        }
+    }
+
+</style>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+        let chkBoxes = document.querySelectorAll("input[type=checkbox]")
+        chkBoxes.forEach(input=>{
+            input.addEventListener('click', ()=>{
+                for(let i = 0; i < chkBoxes.length; i++)
+                {
+                    if(chkBoxes[i] != input && chkBoxes[i].checked==true)
+                    {
+                        chkBoxes[i].checked = false;
+                        break;
+                    }
+                }
+            })
+        })
+        document.addEventListener('click', ()=>{
+
+        })
+    })
+    
+
+</script>
